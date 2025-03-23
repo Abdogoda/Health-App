@@ -37,7 +37,7 @@ return new class extends Migration {
             $table->integer('fat')->default(0);
 
             $table->boolean('is_favorite')->default(false);
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

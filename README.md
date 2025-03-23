@@ -16,9 +16,9 @@ We Are Health App !
 10. ... enjoy!
 
 
-## Work with queue (default - mail)
+## Work with schedule
 
-- To work with the default queue (for example: for authentication mails, progress mail) you have to run `php artisan schedule:work`
+- To work with the default schedule (for example: for authentication mails, progress mail) you have to run `php artisan schedule:work`
 
 ## Issue an api key from https://spoonacular.com/
 

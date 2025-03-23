@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
@@ -112,7 +113,8 @@ class AuthController extends Controller
     // Delete user account
     public function deleteAccount(Request $request)
     {
-        $request->user()->delete();
+        $user = User::findOrFail(Auth::id());
+        $user->delete();
         return $this->response(message: 'User account deleted successfully');
     }
 }

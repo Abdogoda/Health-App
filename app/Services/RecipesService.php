@@ -16,25 +16,28 @@ class RecipesService extends ApiService
 
   public function getRecipesForUser(int $count, int $offset, string $cuisine = null, string $type = null, string $search = null, bool $applyForMe = true)
   {
-    $userData = $this->user->profile;
-    $medicalRestrictions = [];
-    $allergiesRestrictions = [];
-
     $apiParams = [
       'number' => $count,
       'offset' => $offset,
       'addRecipeNutrition' => "true",
     ];
 
-    if ($applyForMe) {
-      $apiParams['maxCalories'] = $userData->daily_caloric_target;
-      $apiParams['maxCarbs'] = $userData->carbs_target;
-      $apiParams['maxProtein'] = $userData->protein_target;
-      $apiParams['maxFat'] = $userData->fat_target;
-      $apiParams['diet'] = $userData->dietary_preference ?? '';
+    $medicalRestrictions = [];
+    $allergiesRestrictions = [];
 
-      $medicalRestrictions = HealthHelper::getMedicalRestrictions($this->user);
-      $allergiesRestrictions = HealthHelper::getAllergyRestrictions($this->user);
+    if ($this->user->profile) {
+      $userData = $this->user->profile;
+
+      if ($applyForMe) {
+        $apiParams['maxCalories'] = $userData->daily_caloric_target;
+        $apiParams['maxCarbs'] = $userData->carbs_target;
+        $apiParams['maxProtein'] = $userData->protein_target;
+        $apiParams['maxFat'] = $userData->fat_target;
+        $apiParams['diet'] = $userData->dietary_preference ?? '';
+
+        $medicalRestrictions = HealthHelper::getMedicalRestrictions($this->user);
+        $allergiesRestrictions = HealthHelper::getAllergyRestrictions($this->user);
+      }
     }
 
     if ($type)
