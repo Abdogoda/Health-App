@@ -1,4 +1,4 @@
-# Teradevelopers
+# Health App
 
 We Are Health App !
 
@@ -19,6 +19,7 @@ We Are Health App !
 ## Work with schedule
 
 - To work with the default schedule (for example: for authentication mails, progress mail) you have to run `php artisan schedule:work`
+
 
 ## Issue an api key from https://spoonacular.com/
 
@@ -56,3 +57,15 @@ We Are Health App !
       MAIL_FROM_ADDRESS=your-email@gmail.com
       MAIL_FROM_NAME="Your Name"
     ```
+
+## API Testing with Postman
+
+To make API testing easier, we have included a Postman collection in the project.
+
+### Importing the Collection:
+1. Open [Postman](https://www.postman.com/).
+2. Click on **Import** in the top-left corner.
+3. Select **"Upload Files"** and choose the Postman collection file located at: [postman/Health.postman_collection.json](postman/Health.postman_collection.json)
+4. Once imported, you can test all API endpoints with predefined requests.
+
+📌 *Make sure your local server is running before testing the API.*
