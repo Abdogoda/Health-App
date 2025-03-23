@@ -75,28 +75,3 @@ Route::prefix('/public')->controller(PublicController::class)->group(function ()
     Route::get('/dishes', 'dishes');
     Route::get('/dietary-preferences', 'dietaryPreferences');
 });
-
-
-// Guest routes
-Route::controller(AuthController::class)->middleware('guest')->group(function () {
-    Route::post('/register', 'register');
-    Route::post('/login', 'login');
-
-    Route::post('/forgot-password', 'forgotPassword');
-    Route::post('/reset-password', 'resetPassword');
-});
-
-Route::middleware(['auth:sanctum'])->group(function () {
-    // Logout route
-    Route::post('/logout', [AuthController::class, 'logout']);
-    Route::delete('/delete-account', [AuthController::class, 'deleteAccount']);
-
-
-    Route::prefix('/profile')->group(function () {
-        // Info Profile routes
-        Route::get('/', [ProfileController::class, 'index']);
-        Route::put('/', [ProfileController::class, 'update']);
-        Route::post('/change-password', [ProfileController::class, 'changePassword']);
-    });
-
-});
