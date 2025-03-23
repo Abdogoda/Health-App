@@ -65,7 +65,7 @@ To make API testing easier, we have included a Postman collection in the project
 ### Importing the Collection:
 1. Open [Postman](https://www.postman.com/).
 2. Click on **Import** in the top-left corner.
-3. Select **"Upload Files"** and choose the Postman collection file located at: [postman/Health.postman_collection.json](postman/Health.postman_collection.json)
+3. Select **"Upload Files"** and choose the Postman collection file located at: [Health.postman_collection.json](Health.postman_collection.json)
 4. Once imported, you can test all API endpoints with predefined requests.
 
 📌 *Make sure your local server is running before testing the API.*
